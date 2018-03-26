@@ -17,7 +17,7 @@ source=(dwm.desktop
         fakefullscreen.diff
         "$pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'c4cc54e596f135e198776d53485cb108'
+         '773694853820017b6e0344b65f5d13e0'
          '31899b188639fef08753e8095f603f58'
          '2e27c57d9ec228e3554556d281707ffc'
          'SKIP')
