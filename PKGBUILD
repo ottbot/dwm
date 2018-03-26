@@ -1,5 +1,4 @@
-pkgname=dwm-git
-_pkgname=dwm
+pkgname=dwm
 pkgver=6.1.26.g3bd8466
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
@@ -14,29 +13,28 @@ provides=('dwm')
 conflicts=('dwm')
 epoch=1
 source=(dwm.desktop
-        "$_pkgname::git+http://git.suckless.org/dwm")
+        config.h
+        "$pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
+         'c4cc54e596f135e198776d53485cb108'
          'SKIP')
 
 pkgver(){
-  cd $_pkgname
+  cd $pkgname
   git describe --tags |sed 's/-/./g'
 }
 
 prepare() {
-  cd $_pkgname
-  if [[ -f "$SRCDEST/$pkgname/config.h" ]]; then
-    cp -f "$SRCDEST/$pkgname/config.h" config.h
-  fi
+  cp -f config.h $pkgname/config.h 
 }
 
 build() {
-  cd $_pkgname
+  cd $pkgname
   make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-  cd $_pkgname
+  cd $pkgname
   make PREFIX=/usr DESTDIR="$pkgdir" install
   install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
