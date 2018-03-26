@@ -14,9 +14,13 @@ conflicts=('dwm')
 epoch=1
 source=(dwm.desktop
         config.h
+        pertag.diff
+        fakefullscreen.diff
         "$pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'c4cc54e596f135e198776d53485cb108'
+         '31899b188639fef08753e8095f603f58'
+         '2e27c57d9ec228e3554556d281707ffc'
          'SKIP')
 
 pkgver(){
@@ -25,7 +29,10 @@ pkgver(){
 }
 
 prepare() {
-  cp -f config.h $pkgname/config.h 
+  cp -f config.h $pkgname/config.h
+  cd $pkgname
+  patch -Np1 -i "${SRCDEST}/fakefullscreen.diff"
+  patch -Np1 -i
 }
 
 build() {
