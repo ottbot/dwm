@@ -11,7 +11,6 @@ makedepends=('git')
 install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
-epoch=1
 source=(dwm.desktop
         config.h
         pertag.diff
@@ -22,6 +21,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '31899b188639fef08753e8095f603f58'
          '2e27c57d9ec228e3554556d281707ffc'
          'SKIP')
+_patches=('fakefullscreen' 'pertag')
 
 pkgver(){
   cd $pkgname
@@ -31,8 +31,14 @@ pkgver(){
 prepare() {
   cp -f config.h $pkgname/config.h
   cd $pkgname
-  patch -Np1 -i "${SRCDEST}/fakefullscreen.diff"
-  patch -Np1 -i
+
+
+  for p in ${_patches[@]}
+  do
+    echo "** Applying ${p}.diff"
+    patch -Np1 -i "${SRCDEST}/${p}.diff"
+  done
+
 }
 
 build() {
