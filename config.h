@@ -7,15 +7,30 @@ static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Source Code Pro:size=16" };
 static const char dmenufont[]       = "Source Code Pro:size=28";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+
+
+static const char col_base00[] = "#1d1f21";
+static const char col_base01[] = "#282a2e";
+static const char col_base02[] = "#373b41";
+static const char col_base03[] = "#969896";
+static const char col_base04[] = "#b4b7b4";
+static const char col_base05[] = "#c5c8c6";
+static const char col_base06[] = "#e0e0e0";
+static const char col_base07[] = "#ffffff";
+static const char col_base08[] = "#cc6666";
+static const char col_base09[] = "#de935f";
+static const char col_base0A[] = "#f0c674";
+static const char col_base0B[] = "#b5bd68";
+static const char col_base0C[] = "#8abeb7";
+static const char col_base0D[] = "#81a2be";
+static const char col_base0E[] = "#b294bb";
+static const char col_base0F[] = "#a3685a";
+
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_base05, col_base00, col_base01 },
+	[SchemeSel]  = { col_base04, col_base01, col_base0C  },
 };
 
 /* tagging */
@@ -55,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "10", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "10", "-fn", dmenufont, "-nb", col_base00, "-nf", col_base04, "-sb", col_base0C, "-sf", col_base00, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *quitxcmd[] = { "killall", "xinit", NULL};
 static const char *slockcmd[] = { "slock", NULL };
