@@ -14,14 +14,16 @@ conflicts=('dwm')
 source=(dwm.desktop
         config.h
         pertag.diff
+        noborder.diff
         fakefullscreen.diff
         "$pkgname::git+http://git.suckless.org/dwm")
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         '773694853820017b6e0344b65f5d13e0'
+         'e9d0fc3b273f4611d3b1dabe78e0935a'
          '31899b188639fef08753e8095f603f58'
+         'fbb786263f2d714b18368ff64779d669'
          '2e27c57d9ec228e3554556d281707ffc'
          'SKIP')
-_patches=('fakefullscreen' 'pertag')
+_patches=('fakefullscreen' 'pertag' 'noborder')
 
 pkgver(){
   cd $pkgname
