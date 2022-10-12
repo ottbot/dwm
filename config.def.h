@@ -10,8 +10,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "JetBrains Mono:size=10" };
+static const char dmenufont[]       = "JetBrains Mono:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,4 +117,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
